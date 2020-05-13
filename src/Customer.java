@@ -57,6 +57,7 @@ class Customer {
                     thisAmount += (each.getDaysRented() - 3) * 1.5;
                 break;
             default: System.out.println("Error in Switchcase");
+                break;
         }
         return thisAmount;
     }
