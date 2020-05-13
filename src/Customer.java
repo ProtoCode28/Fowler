@@ -1,5 +1,4 @@
 
-import java.lang.*;
 import java.util.*;
 
 class Customer {
@@ -57,6 +56,7 @@ class Customer {
                 if (each.getDaysRented() > 3)
                     thisAmount += (each.getDaysRented() - 3) * 1.5;
                 break;
+            default: System.out.println("Error in Switchcase");
         }
         return thisAmount;
     }
