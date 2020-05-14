@@ -28,7 +28,7 @@ class Customer {
             double thisAmount;
             Rental each = enum_rentals.nextElement();
             //determine amounts for each line
-            thisAmount = amountFor(each);
+            thisAmount = each.getCharge();
             // add frequent renter points
             frequentRenterPoints ++;
             // add bonus for a two day new release rental
@@ -45,24 +45,7 @@ class Customer {
         return result.toString();
     }
 
-    private double amountFor(Rental rental) {
-        double result = 0;
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR -> {
-                result += 2;
-                if (rental.getDaysRented() > 2)
-                    result += (rental.getDaysRented() - 2) * 1.5;
-            }
-            case Movie.NEW_RELEASE -> result += rental.getDaysRented() * 3;
-            case Movie.CHILDRENS -> {
-                result += 1.5;
-                if (rental.getDaysRented() > 3)
-                    result += (rental.getDaysRented() - 3) * 1.5;
-            }
-            default -> System.out.println("Error in Switchcase");
-        }
-        return result;
-    }
+
 
 }
     
