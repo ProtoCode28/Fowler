@@ -22,7 +22,7 @@ public class Movie {
         return title;
     }
 
-    double getCharge(int days) {
+    public double getCharge(int days) {
         double result = 0;
         switch (this.getPriceCode()) {
             case Movie.REGULAR -> {
@@ -38,5 +38,11 @@ public class Movie {
             }
         }
         return result;
+    }
+    public int getFrequentRenterPoints(int days) {
+        if (this.priceCode == Movie.NEW_RELEASE && days > 1)
+            return 2;
+        else
+            return 1;
     }
 }
